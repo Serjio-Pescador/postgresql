@@ -1,0 +1,5 @@
+ contragent
+------------
+ Alfa-Bank
+ VTB bank
+(2 строки)
