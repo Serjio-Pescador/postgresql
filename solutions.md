@@ -3,8 +3,8 @@
 ### SELECT IN SELECT
  
 ``` sql
-SELECT contragent FROM banks
-WHERE contragent IN (SELECT contragent FROM banks 
+SELECT contragent FROM bankrate 
+WHERE contragent IN (SELECT contragent FROM bankrate 
 WHERE typeraiting = 'GLOBAL' AND to_char(raitingdate, 'YYYY/MM/DD') LIKE '2023%') AND typeraiting = 'RU'
 GROUP BY contragent;
 ```
@@ -16,8 +16,8 @@ GROUP BY contragent;
 ### SELECT in JOIN table with SELECT
 
 ``` sql
-SELECT banks.contragent FROM banks 
-INNER JOIN (SELECT contragent FROM banks
-WHERE typeraiting = 'GLOBAL' AND to_char(raitingdate, 'YYYY/MM/DD') LIKE '2023%') AS a ON a.contragent = banks.contragent 
+SELECT bankrate.contragent FROM bankrate 
+INNER JOIN (SELECT contragent FROM bankrate 
+WHERE typeraiting = 'GLOBAL' AND to_char(raitingdate, 'YYYY/MM/DD') LIKE '2023%') AS a ON a.contragent = bankrate.contragent 
 WHERE typeraiting = 'RU' AND to_char(raitingdate, 'YYYY/MM/DD') LIKE '2023%';
 ```
