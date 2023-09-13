@@ -1,0 +1,3 @@
+SELECT contragent FROM banks
+WHERE contragent IN (SELECT contragent FROM banks WHERE typeraiting = 'GLOBAL' AND to_char(raitingdate, 'YYYY/MM/DD') LIKE '2023%') AND typeraiting = 'RU'
+GROUP BY contragent;
